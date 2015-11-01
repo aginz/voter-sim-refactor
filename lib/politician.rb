@@ -3,10 +3,10 @@ require 'citizen'
 class Politician < Citizen
   POL_PARTY = ["democrat", "republican"]
 
-  attr_writer :party
+  attr_accessor :party
 
   def initialize(name: name=nil, party: party=nil)
-    super(name)
+    super(name: name)
     @party = party
   end
 
@@ -22,7 +22,6 @@ class Politician < Citizen
     gets.chomp.downcase
   end
 
-  private
   def get_party
     party = ask("What is your political party? Democrat or Republican?")
     validate(POL_PARTY, party)
