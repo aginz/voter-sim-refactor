@@ -1,5 +1,5 @@
-require 'citizen'
-require 'modules'
+require_relative './citizen'
+require_relative './modules'
 
 class Person < Citizen
   include CommonMethods

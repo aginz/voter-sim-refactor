@@ -1,6 +1,6 @@
-require '../lib/modules.rb'
-require '../lib/citizen.rb'
-require '../lib/politician.rb'
+require_relative '../lib/modules'
+require_relative '../lib/citizen'
+require_relative '../lib/politician'
 include CommonMethods
 
-pol1 = Politician.from_user_input
+pol1 = Politician.create
