@@ -3,4 +3,4 @@ require './lib/citizen.rb'
 require './lib/politician.rb'
 include CommonMethods
 
-pol1 = Politician.new.from_user_input
+pol1 = Politician.from_user_input
