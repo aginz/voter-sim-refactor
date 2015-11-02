@@ -1,6 +1,9 @@
 require 'citizen'
+require 'modules'
 
 class Politician < Citizen
+  include CommonMethods
+
   POL_PARTY = ["democrat", "republican"]
 
   attr_accessor :party
@@ -10,20 +13,17 @@ class Politician < Citizen
     @party = party
   end
 
-  def validate(options, field)
-    unless options.include? field
-      field = ask("Sorry that is not an option. Please select one of the following: #{options.join(", ")}")
-    end
-    field
+  def self.from_user_input
+    @party = ask_for_party
+    @name = ask_for_name
   end
 
-  def ask(message)
-    puts message
-    gets.chomp.downcase
-  end
-
-  def get_party
-    party = ask("What is your political party? Democrat or Republican?")
+  def self.ask_for_party
+    party = ask('What is your political party? Democrat or Republican?')
     validate(POL_PARTY, party)
+  end
+
+  def self.ask_for_name
+    super
   end
 end
