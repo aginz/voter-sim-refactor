@@ -16,6 +16,11 @@ class Citizen
     @@citizens
   end
 
+  def self.find(id)
+    index = id - 1
+    @@citizens[index]
+  end
+
   def ask_for_name
     ask("What is your name?")
   end

@@ -34,4 +34,15 @@ RSpec.describe Citizen do
     expect(result[1].name).to eq ('Matt')
     expect(result[2].name).to eq ('Josh')
   end
+
+  it "#find returns selected citizen by id" do
+    citizen1 = Citizen.new(name: 'Ashley')
+    citizen2 = Citizen.new(name: 'Matt')
+
+    result1 = Citizen.find(1)
+    result2 = Citizen.find(2)
+
+    expect(result1.name).to eq 'Ashley'
+    expect(result2.name).to eq 'Matt'
+  end
 end
