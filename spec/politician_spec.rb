@@ -26,8 +26,7 @@ RSpec.describe Politician do
   end
 
   it '#create new politician with party and name' do
-    party = 'democrat'
-    name = 'Sam'
+    allow(Politician).to receive(:ask_for_party).and return("democrat")
     pol1 = Politician.create
 
     expect(pol1).to_be_instance_of(Politician)

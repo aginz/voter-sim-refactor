@@ -17,14 +17,14 @@ class Politician < Citizen
   end
 
   def self.create
-    party ||= ask_for_party
-    name ||= Citizen.ask_for_name
+    party = ask_for_party
+    name = Citizen.ask_for_name
 
     new(name: name, party: party)
   end
 
   def self.update
-    option ||= ask('What would you like to update? Name or party?')
+    option = ask('What would you like to update? Name or party?')
     option = validate(POL_ATTRIBUTES, option)
 
     return self.name = Citizen.ask_for_name if option == 'name'
