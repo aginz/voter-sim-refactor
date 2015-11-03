@@ -8,10 +8,12 @@ class Politician < Citizen
   POL_ATTRIBUTES = ["name", "party"]
 
   attr_accessor :party
+  attr_reader :vote_for
 
   def initialize(name: name=nil, party: party=nil)
     super(name: name)
     @party = party
+    @vote_for = self.id
   end
 
   def self.create
