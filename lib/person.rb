@@ -1,5 +1,5 @@
-require_relative './citizen'
-require_relative './modules'
+require_relative '../lib/citizen'
+require_relative '../lib/modules'
 
 class Person < Citizen
   include CommonMethods
@@ -13,17 +13,15 @@ class Person < Citizen
     @politics = politics
   end
 
-  def self.from_user_input
-    @politics = ask_for_politics
-    @name = ask_for_name
+  def self.create
+    politics = ask_for_politics
+    name = Citizen.ask_for_name
+
+    new(name: name, politics: politics)
   end
 
   def self.ask_for_politics
     politics = ask('What is your political preference? Tea Party, Conservative, Neutral, Liberal, or Socialist?')
     validate(POLITICS, politics)
-  end
-
-  def self.ask_for_name
-    super
   end
 end

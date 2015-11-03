@@ -1,4 +1,8 @@
+require_relative '../lib/modules'
+
 class Citizen
+  include CommonMethods
+
   attr_accessor :name
   attr_reader :id, :citizens
 

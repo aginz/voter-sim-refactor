@@ -3,4 +3,6 @@ require_relative '../lib/citizen'
 require_relative '../lib/politician'
 include CommonMethods
 
-pol1 = Politician.create
+hilary = Politician.create
+hilary.update
+p hilary
