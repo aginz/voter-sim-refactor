@@ -23,7 +23,7 @@ class Politician < Citizen
     new(name: name, party: party)
   end
 
-  def update
+  def self.update
     option ||= ask('What would you like to update? Name or party?')
     option = validate(POL_ATTRIBUTES, option)
 
