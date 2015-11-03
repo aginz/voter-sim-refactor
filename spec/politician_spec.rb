@@ -24,4 +24,14 @@ RSpec.describe Politician do
 
     expect(result).to eq(expected_result)
   end
+
+  it '#create new politician with party and name' do
+    party = 'democrat'
+    name = 'Sam'
+    pol1 = Politician.create
+
+    expect(pol1).to_be_instance_of(Politician)
+    expect(pol1.party).to eq('democrat')
+    expect(pol1.name).to eq('Sam')
+  end
 end
