@@ -11,15 +11,15 @@ end
 
 RSpec.describe Politician do
   it 'has a name' do
-    hilary = Politician.new(name: 'Hilary')
-    result = hilary.name
+    hillary = Politician.new(name: 'Hillary')
+    result = hillary.name
 
-    expect(result).to eq('Hilary')
+    expect(result).to eq('Hillary')
   end
 
   it 'has a political party' do
-    hilary = Politician.new(party: 'democrat')
-    result = hilary.party
+    hillary = Politician.new(party: 'democrat')
+    result = hillary.party
 
     expect(result).to eq('democrat')
   end
