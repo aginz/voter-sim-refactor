@@ -13,7 +13,7 @@ class Politician < Citizen
   def initialize(name: name=nil, party: party=nil)
     super(name: name)
     @party = party
-    @vote_for = self.id
+    @vote_for = self
   end
 
   def self.create

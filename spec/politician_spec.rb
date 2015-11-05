@@ -2,6 +2,13 @@ require 'rspec'
 require 'politician'
 require 'citizen'
 
+module CommonMethods
+  def ask(message)
+    name = 'Sam'
+    party = 'democrat'
+  end
+end
+
 RSpec.describe Politician do
   it 'has a name' do
     hilary = Politician.new(name: 'Hilary')
@@ -20,17 +27,25 @@ RSpec.describe Politician do
   it 'votes for self' do
     hilary = Politician.new(name: 'Hilary', party: 'democrat')
     result = hilary.vote_for
-    expected_result = hilary.id
 
-    expect(result).to eq(expected_result)
+    expect(result.name).to eq('Hilary')
+    expect(result.party).to eq('democrat')
   end
 
   it '#create new politician with party and name' do
-    allow(Politician).to receive(:ask_for_party).and return("democrat")
-    pol1 = Politician.create
+    allow(Politician).to receive(:ask_for_party).and_return('democrat')
+    allow(Citizen).to receive(:ask_for_name).and_return('Sam')
+    pol = Politician.create
 
-    expect(pol1).to_be_instance_of(Politician)
-    expect(pol1.party).to eq('democrat')
-    expect(pol1.name).to eq('Sam')
+    expect(pol.name).to eq('Sam')
+    expect(pol.party).to eq('democrat')
   end
+
+  # it '#update name and party' do
+    # pol1 = Politician.new(name: 'Kirk', party: 'republican')
+    # pol1.update
+
+    # expect(pol1.name).to eq('Hilary')
+    # expect(pol1.party).to eq('republican')
+  # end
 end
