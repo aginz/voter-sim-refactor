@@ -1,13 +1,7 @@
 require 'rspec'
 require 'politician'
 require 'citizen'
-
-module CommonMethods
-  def ask(message)
-    name = 'Sam'
-    party = 'democrat'
-  end
-end
+require 'modules'
 
 RSpec.describe Politician do
   it 'has a name' do
@@ -41,14 +35,12 @@ RSpec.describe Politician do
     expect(pol.party).to eq('democrat')
   end
 
-  it '#update' do
-    context 'name' do
-      pol1 = Politician.new(name: 'Sam', party: 'republican')
-      allow(Citizen).to receive(:ask_for_name).and_return('Dave')
-    end
-    # pol1.update
+  it '#update name' do
+    pol1 = Politician.new(name: 'Sam', party: 'republican')
+    allow(pol1).to receive(:ask_update_attribute).and_return('name')
+    allow(Citizen).to receive(:ask_for_name).and_return('Dave')
+    pol1.update
 
-    # expect(pol1.name).to eq('Hilary')
-    # expect(pol1.party).to eq('republican')
+    expect(pol1.name).to eq('Dave')
   end
 end
