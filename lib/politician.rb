@@ -23,9 +23,8 @@ class Politician < Citizen
     new(name: name, party: party)
   end
 
-  def self.update
-    option = ask('What would you like to update? Name or party?')
-    option = validate(POL_ATTRIBUTES, option)
+  def update
+    option = validate(POL_ATTRIBUTES, ask('What would you like to update? Name or party?'))
 
     return self.name = Citizen.ask_for_name if option == 'name'
     return self.party = ask_for_party if option == 'party'
@@ -34,7 +33,6 @@ class Politician < Citizen
   private
 
   def self.ask_for_party
-    party = ask('What is your political party? Democrat or Republican?')
-    validate(POL_PARTY, party)
+    validate(POL_PARTY, ask('What is your political party? Democrat or Republican?'))
   end
 end

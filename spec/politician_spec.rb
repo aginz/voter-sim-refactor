@@ -11,15 +11,15 @@ end
 
 RSpec.describe Politician do
   it 'has a name' do
-    hillary = Politician.new(name: 'Hillary')
-    result = hillary.name
+    hilary = Politician.new(name: 'Hilary')
+    result = hilary.name
 
-    expect(result).to eq('Hillary')
+    expect(result).to eq('Hilary')
   end
 
   it 'has a political party' do
-    hillary = Politician.new(party: 'democrat')
-    result = hillary.party
+    hilary = Politician.new(party: 'democrat')
+    result = hilary.party
 
     expect(result).to eq('democrat')
   end
@@ -41,11 +41,14 @@ RSpec.describe Politician do
     expect(pol.party).to eq('democrat')
   end
 
-  # it '#update name and party' do
-    # pol1 = Politician.new(name: 'Kirk', party: 'republican')
+  it '#update' do
+    context 'name' do
+      pol1 = Politician.new(name: 'Sam', party: 'republican')
+      allow(Citizen).to receive(:ask_for_name).and_return('Dave')
+    end
     # pol1.update
 
     # expect(pol1.name).to eq('Hilary')
     # expect(pol1.party).to eq('republican')
-  # end
+  end
 end
